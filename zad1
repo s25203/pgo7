@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Car implements Comparable<Car> {
+    private String modelName;
+    private int productionYear;
+
+    public Car(String modelName, int productionYear) {
+        this.modelName = modelName;
+        this.productionYear = productionYear;
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
+    public int getProductionYear() {
+        return productionYear;
+    }
+
+    @Override
+    public int compareTo(Car otherCar) {
+        return Integer.compare(this.productionYear, otherCar.getProductionYear());
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Car> cars = new ArrayList<>();
+        cars.add(new Car("Ford Mustang", 2015));
+        cars.add(new Car("Chevrolet Camaro", 2012));
+        cars.add(new Car("BMW M3", 2020));
+        cars.add(new Car("Audi R8", 2018));
+        cars.add(new Car("Mercedes-Benz C-Class", 2017));
+        cars.add(new Car("Porsche 911", 2019));
+        cars.add(new Car("Nissan GT-R", 2016));
+        cars.add(new Car("Toyota Supra", 2021));
+        cars.add(new Car("Lamborghini Huracan", 2014));
+        cars.add(new Car("Ferrari 488", 2013));
+
+        Collections.sort(cars);
+
+        for (Car car : cars) {
+            System.out.println("Model: " + car.getModelName() + ", Year: " + car.getProductionYear());
+        }
+    }
+}
